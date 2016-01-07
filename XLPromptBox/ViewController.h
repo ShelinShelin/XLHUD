@@ -1,7 +1,7 @@
 //
 //  ViewController.h
 //  XLPromptBox
-//
+//  https://github.com/ShelinShelin
 //  Created by Shelin on 16/1/6.
 //  Copyright © 2016年 GreatGate. All rights reserved.
 //

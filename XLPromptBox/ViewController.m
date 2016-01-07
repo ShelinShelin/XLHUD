@@ -1,7 +1,7 @@
 //
 //  ViewController.m
 //  XLPromptBox
-//
+//  https://github.com/ShelinShelin
 //  Created by Shelin on 16/1/6.
 //  Copyright © 2016年 GreatGate. All rights reserved.
 //
@@ -26,9 +26,8 @@
 
 - (IBAction)customPrompt:(id)sender {
     CustomView *customView = [[NSBundle mainBundle] loadNibNamed:@"CustomView" owner:nil options:nil].lastObject;
-    
-//    [XLShowPrompt setCoverHiden:YES];
     [XLPromptController showPromptBoxWithCustomView:customView];
+    
 }
 
 - (IBAction)hiden:(id)sender {

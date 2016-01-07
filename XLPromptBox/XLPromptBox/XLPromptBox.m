@@ -1,7 +1,7 @@
 //
 //  XLPromptBox.m
 //  XLPromptBox
-//
+//  https://github.com/ShelinShelin
 //  Created by Shelin on 16/1/6.
 //  Copyright © 2016年 GreatGate. All rights reserved.
 //
@@ -54,7 +54,6 @@ static CGFloat const kDefaultMagin = 20.0f;
 - (instancetype)initWithImage:(UIImage *)image andText:(NSString *)text {
     
     if (self = [super initWithFrame:[self defaultFrame]]) {
-        self.isCoverHiden = NO;
         self.image = image;
         self.text = text;
         self.alpha = 0.0f;
@@ -76,7 +75,6 @@ static CGFloat const kDefaultMagin = 20.0f;
 
 - (instancetype)initWithCustomView:(UIView *)customView {
     if ([super init]) {
-        self.isCoverHiden = NO;
         self.alpha = 0.0f;
         self.coverView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
         self.coverView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.0f];
@@ -95,19 +93,16 @@ static CGFloat const kDefaultMagin = 20.0f;
  *  promptBox show
  */
 - (void)presentWithDuration:(CGFloat)duration speed:(CGFloat)speed {
+    
     [UIView animateWithDuration:speed animations:^{
         self.alpha = 1.0f;
-        if (self.isCoverHiden) {
-            self.coverView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.0];
-        }else {
-            self.coverView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.5f];
-        }
-
+        self.coverView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.5f];
+        
     } completion:^(BOOL finished) {
         if (finished) {
             if (!self.customView) {
                 [self performBlock:^{
-                    [self promptBoxHidenWithView:self Speed:speed];
+                    [self promptBoxHidenWithView:self speed:speed];
                 } afterDelay:duration];
             }
         }
@@ -117,7 +112,7 @@ static CGFloat const kDefaultMagin = 20.0f;
 /**
  *  promptBox hiden
  */
-- (void)promptBoxHidenWithView:(XLPromptBox  *)view Speed:(CGFloat)speed {
+- (void)promptBoxHidenWithView:(XLPromptBox  *)view speed:(CGFloat)speed {
     
     [UIView animateWithDuration:speed animations:^{
 
@@ -154,7 +149,7 @@ static CGFloat const kDefaultMagin = 20.0f;
         _textLabel.font = [UIFont systemFontOfSize:kDefaultTextFont];
         _textLabel.textColor = [UIColor blackColor];
         _textLabel.backgroundColor = [UIColor clearColor];
-        _textLabel.textAlignment = NSTextAlignmentCenter;
+        _textLabel.textAlignment = NSTextAlignmentLeft;
         _textLabel.numberOfLines = 0;
         [self addSubview:_textLabel];
         if (self.text != nil) {
@@ -162,14 +157,6 @@ static CGFloat const kDefaultMagin = 20.0f;
         }
     }
     return _textLabel;
-}
-
-#pragma mark - setter
-
-- (void)setIsCoverHiden:(BOOL)isCoverHiden {
-    if (_isCoverHiden != isCoverHiden) {
-        _isCoverHiden = isCoverHiden;
-    }
 }
 
 #pragma mark - layout subviews

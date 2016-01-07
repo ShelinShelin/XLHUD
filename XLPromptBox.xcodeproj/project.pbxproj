@@ -178,10 +178,10 @@
 		FD6AC6671C3CC06C006A9A51 /* XLPromptBox */ = {
 			isa = PBXGroup;
 			children = (
-				FD6AC6681C3CC07F006A9A51 /* XLPromptBox.h */,
-				FD6AC6691C3CC07F006A9A51 /* XLPromptBox.m */,
 				FD0A5F2D1C3E132900E86B6E /* XLPromptController.h */,
 				FD0A5F2E1C3E132900E86B6E /* XLPromptController.m */,
+				FD6AC6681C3CC07F006A9A51 /* XLPromptBox.h */,
+				FD6AC6691C3CC07F006A9A51 /* XLPromptBox.m */,
 			);
 			path = XLPromptBox;
 			sourceTree = "<group>";
