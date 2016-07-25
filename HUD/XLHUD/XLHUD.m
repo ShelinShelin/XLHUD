@@ -14,8 +14,8 @@
 #define ANIMATION_DURATION 0.3f
 #define SHOW_DURATION 0.5f
 
-static CGFloat const kDefaultWidth = 240.0f;
-static CGFloat const kDefaultHeight = 80.0f;
+static CGFloat const kDefaultWidth = 160.0f;
+static CGFloat const kDefaultHeight = 60.0f;
 static CGFloat const kDefaultRound = 9.0f;
 static CGFloat const kDefaultTextFont = 16.0f;
 static CGFloat const kDefaultMagin = 20.0f;
@@ -146,7 +146,6 @@ static CGFloat const kDefaultMagin = 20.0f;
  *  PromptBox default frame
  */
 - (CGRect)defaultFrame {
-    
     return CGRectMake((kScreenWidth - kDefaultWidth) / 2.0f, (kScreenHeight - kDefaultHeight) / 2.0f - 30, kDefaultWidth, kDefaultHeight);
 }
 
