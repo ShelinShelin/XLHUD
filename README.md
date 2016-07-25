@@ -1,6 +1,8 @@
 
 ####XLHUD
 
+![gif](https://github.com/ShelinShelin/XLHUD/blob/master/result.gif)
+
 ####usage
 
 ```
