@@ -1,18 +1,18 @@
 //
-//  XLPromptBoxTests.m
-//  XLPromptBoxTests
+//  HUDTests.m
+//  HUDTests
 //
-//  Created by Shelin on 16/1/6.
+//  Created by Shelin on 16/7/25.
 //  Copyright © 2016年 GreatGate. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface XLPromptBoxTests : XCTestCase
+@interface HUDTests : XCTestCase
 
 @end
 
-@implementation XLPromptBoxTests
+@implementation HUDTests
 
 - (void)setUp {
     [super setUp];
