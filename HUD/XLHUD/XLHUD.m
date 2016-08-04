@@ -98,18 +98,18 @@ static CGFloat const kDefaultMagin = 20.0f;
     if (self = [super init]) {
         
         _isCustomHUD = YES;
+        _customView = customView;
         
         //cover View
         _coverView = [[UIView alloc] init];
         _coverView.frame = [UIScreen mainScreen].bounds;
         _coverView.backgroundColor = [UIColor clearColor];
         
-        _customView = customView;
+        self.frame = [self customViewFrame];
         [self addSubview:_customView];
         
         [self.coverView addSubview:self];
         [[self getKeyWindow] addSubview:self.coverView];
-        self.frame = [self customViewFrame];
     }
     return self;
 }
@@ -168,22 +168,33 @@ static CGFloat const kDefaultMagin = 20.0f;
     
     self.transform = CGAffineTransformMakeScale(0.0, 0.0);
     
-    [UIView animateWithDuration:animationDuration
-                          delay:0.0
-         usingSpringWithDamping:0.5
-          initialSpringVelocity:13.0
-                        options:UIViewAnimationOptionCurveEaseInOut
-                     animations:^{
-                         self.transform = CGAffineTransformMakeScale(1.0, 1.0);
-                         
-                     } completion:^(BOOL finished) {
-                         if (!finished) return;
-                         if (!_isCustomHUD) {
-                             [self performBlock:^{
-                                 [self hidenHUD];
-                             } afterDelay:showDuration];
-                         }
-                     }];
+//    [UIView animateWithDuration:animationDuration
+//                          delay:0.0
+//         usingSpringWithDamping:0.5
+//          initialSpringVelocity:3.0
+//                        options:UIViewAnimationOptionCurveEaseInOut
+//                     animations:^{
+//                         self.transform = CGAffineTransformMakeScale(1.0, 1.0);
+//                         
+//                     } completion:^(BOOL finished) {
+//                         if (!finished) return;
+//                         if (!_isCustomHUD) {
+//                             [self performBlock:^{
+//                                 [self hidenHUD];
+//                             } afterDelay:showDuration];
+//                         }
+//                     }];
+    
+    [UIView animateWithDuration:animationDuration animations:^{
+        self.transform = CGAffineTransformMakeScale(1.0, 1.0);
+    } completion:^(BOOL finished) {
+        if (!finished) return;
+        if (!_isCustomHUD) {
+            [self performBlock:^{
+                [self hidenHUD];
+            } afterDelay:showDuration];
+        }
+    }];
 }
 
 #pragma mark - delay block

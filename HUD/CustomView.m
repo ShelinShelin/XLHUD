@@ -12,7 +12,7 @@
 @implementation CustomView
 
 - (instancetype)init {
-    if ([super init]) {
+    if (self = [super init]) {
         self = [[NSBundle mainBundle] loadNibNamed:@"CustomView" owner:nil options:nil].lastObject;
     }
     return self;
